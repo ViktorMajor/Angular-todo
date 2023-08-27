@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+h1, h2, p {
+  color: white;
+} 
+.input-container {
+  background-color: #037171;
+  border-radius: 5px;
+  width: 500px;
+  margin-top: 50px;
+}
+
+.input-container input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+*[_ngcontent-ng-c3491765756] {
+  box-sizing: border-box;
+  color: #037171;
+}
+.input-container input[type="checkbox"] {
+  margin-left: 5px;
+}
+.priority {
+  display: flex;
+  flex-direction: column;
+}
+p {
+  margin: 5px;
+}
+
+button {
+  background-color: #4caf50;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}

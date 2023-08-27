@@ -1,0 +1,40 @@
+<div class="app-container">
+  <h1>To Do Application</h1>
+  <div id="uncompleted" class="uncompleted">
+    <h2>Uncompleted Tasks</h2>
+    <div class="tasks-container">
+      <div class="the-task" *ngFor="let task of uncompletedItems">
+        <p>
+          <strong>{{ task.name }}</strong>
+          ({{ task.priority }})
+        </p>
+        <div class="buttons-container">
+          <button (click)="completion(task)">Done</button>
+          <button (click)="deleteTask(task.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+    
+    <button (click)="addWindow()">Add a next task</button>
+  </div>
+  
+  <div id="completed" class="completed">
+    <h2>Completed Tasks</h2>
+    <div class="the-task" *ngFor="let task of completedItems">
+      <p>
+        <strong>{{ task.name }}</strong>
+        ({{ task.priority }})
+      </p>
+      <div class="buttons-container">
+        <button (click)="again(task)">Again</button>
+        <button (click)="deleteTask(task.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+  <div id="window">
+    <app-list
+      (clearEvent)="clearWindow()"
+      *ngFor="let item of windowItems"
+    ></app-list>
+  </div>
+</div>
