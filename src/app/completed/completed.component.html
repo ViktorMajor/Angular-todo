@@ -1,0 +1,9 @@
+<div class="the-task" *ngFor="let task of completedItems">
+  <p>
+    <strong>{{ task.name }}</strong>
+  </p>
+  <div class="buttons-container">
+    <button (click)="again(task)">Again</button>
+    <button (click)="deleteTask(task.id)">Delete</button>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+
+
+.tasks-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.the-task {
+  display: flex;
+  flex-direction: row;
+  width: 450px;
+  justify-content: space-between;
+}
+.the-task button {
+  margin: 5px;
+  padding: 5px;
+}
+.buttons-container {
+ display: flex;
+ flex-direction: row;
+}
+button {
+  background-color: #4caf50;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}

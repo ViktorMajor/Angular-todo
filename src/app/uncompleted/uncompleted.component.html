@@ -1,0 +1,12 @@
+<div class="tasks-container">
+  <div class="the-task" *ngFor="let task of uncompletedItems">
+    <p>
+      <strong>{{ task.name }}</strong>
+      ({{ task.priority }})
+    </p>
+    <div class="buttons-container">
+      <button (click)="completion(task)">Done</button>
+      <button (click)="deleteTask(task.id)">Delete</button>
+    </div>
+  </div>
+</div>

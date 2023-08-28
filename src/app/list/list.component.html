@@ -1,16 +1,17 @@
-<div class="input-container">
-  <input type="text" placeholder="Task name" #taskNameInput>
-  <div class="priority">
-    <p>Priority</p>
-    <select name="priority" id="priority" #prioritySelect>
-      <option value="low">Low</option>
-      <option value="medium">Medium</option>
-      <option value="high">High</option>
-    </select>
-
-
-    <button (click)="addTask(taskNameInput.value, prioritySelect.value)">Add Task</button>
+<div>
+  <button (click)="addWindow()">Add a next task</button>
+  <div class="input-container" *ngFor="let item of windowItems">
+    <div id="window" (clearEvent)="clearWindow()">
+      <input type="text" placeholder="Task name" #taskNameInput>
+      <div class="priority">
+        <p>Priority</p>
+        <select name="priority" id="priority" #prioritySelect>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <button (click)="addTask(taskNameInput.value, prioritySelect.value)">Add Task</button>
+      </div>
+    </div>
   </div>
 </div>
-
-

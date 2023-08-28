@@ -3,11 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
+import { UncompletedComponent } from './uncompleted/uncompleted.component';
+import { CompletedComponent } from './completed/completed.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent
+    ListComponent,
+    UncompletedComponent,
+    CompletedComponent
   ],
   imports: [
     BrowserModule

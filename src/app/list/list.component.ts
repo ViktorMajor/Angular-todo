@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { TaskService } from '../task.service';
 
 @Component({
@@ -7,16 +7,25 @@ import { TaskService } from '../task.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent {
+
   constructor(private taskService: TaskService) {}
 
-  @Output() clearEvent: EventEmitter<void> = new EventEmitter<void>();
+  windowItems: any[] = [];
+
+  addWindow() {
+    if (this.windowItems.length === 0) {
+      this.windowItems.push({});
+      console.log(this.windowItems);
+    }
+  }
+
+  clearWindow() {
+    this.windowItems = [];
+  }
 
   addTask(taskName: string, priority: string) {
-    this.clearEvent.emit();
     const initialCompletedValue = "uncompleted"; 
     this.taskService.addTask(taskName, priority, initialCompletedValue);
+    this.clearWindow();
   }
-  
-  
-  
 }
