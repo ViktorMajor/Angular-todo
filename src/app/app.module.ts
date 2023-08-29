@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { UncompletedComponent } from './uncompleted/uncompleted.component';
 import { CompletedComponent } from './completed/completed.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CompletedComponent } from './completed/completed.component';
     CompletedComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

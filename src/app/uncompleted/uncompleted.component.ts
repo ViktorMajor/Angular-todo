@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
 import { TaskService } from "../task.service";
 
 @Component({
@@ -8,9 +8,13 @@ import { TaskService } from "../task.service";
 })
 export class UncompletedComponent {
   constructor(private taskService: TaskService) {}
+  @Output() foo = new EventEmitter<number>();
+
 
   deleteTask(taskId: number) {
-    this.taskService.deleteTask(taskId);
+    // this.foo.emit(taskId);
+    // this.taskService.deleteTask(taskId);
+    this.taskService.deletedTaskEvent.next(taskId);
   }
 
   completion(task: any) {
@@ -18,6 +22,7 @@ export class UncompletedComponent {
   }
   
   get uncompletedItems() {
+    console.log( this.taskService.getUncompletedTasks())
     return this.taskService.getUncompletedTasks();
   }
   

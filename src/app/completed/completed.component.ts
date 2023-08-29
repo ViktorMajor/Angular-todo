@@ -1,22 +1,33 @@
-import { Component } from '@angular/core';
-import { TaskService } from "../task.service";
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Task, TaskService } from '../task.service';
 
 @Component({
-  selector: 'app-completed',
-  templateUrl: './completed.component.html',
-  styleUrls: ['./completed.component.css']
+    selector: 'app-completed',
+    templateUrl: './completed.component.html',
+    styleUrls: ['./completed.component.css'],
 })
-export class CompletedComponent {
-  constructor(private taskService: TaskService) {}
+export class CompletedComponent implements OnInit {
+    selectedTask: Task | undefined;
+    completedTasks: Task[] = [];
 
-  deleteTask(taskId: number) {
-    this.taskService.deleteTask(taskId);
-  }
-  again(task: any) {
-    this.taskService.again(task);
-  }
+    @Output() foo = new EventEmitter<number>();
 
-  get completedItems() {
-    return this.taskService.getCompletedTasks();
-  }
+    constructor(private taskService: TaskService) {}
+
+    ngOnInit(): void {
+        this.taskService.getCompletedTasks().subscribe(tasks => {
+            this.completedTasks = tasks;
+        });
+    }
+
+    deleteTask(taskId: number) {
+        // console.log('deleteTask');
+        // this.foo.emit(taskId);
+        // this.taskService.deleteTask(taskId);
+        this.taskService.deletedTaskEvent.next(taskId);
+    }
+    again(task: Task) {
+        this.selectedTask = task;
+        this.taskService.again(task);
+    }
 }

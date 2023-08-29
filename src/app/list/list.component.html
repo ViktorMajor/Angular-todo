@@ -1,7 +1,7 @@
 <div>
-  <button (click)="addWindow()">Add a next task</button>
-  <div class="input-container" *ngFor="let item of windowItems">
-    <div id="window" (clearEvent)="clearWindow()">
+  <button (click)="openWindow()">Add a next task</button>
+  <div class="input-container" *ngIf="isOpen">
+    <div id="window" (clearEvent)="closeWindow()">
       <input class="name-input" type="text" placeholder="Task name" #taskNameInput>
       <div class="priority">
         <p>Priority</p>

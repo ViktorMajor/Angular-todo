@@ -2,30 +2,28 @@ import { Component } from '@angular/core';
 import { TaskService } from '../task.service';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+    selector: 'app-list',
+    templateUrl: './list.component.html',
+    styleUrls: ['./list.component.css'],
 })
 export class ListComponent {
+    constructor(private taskService: TaskService) {}
 
-  constructor(private taskService: TaskService) {}
+    isOpen = false;
 
-  windowItems: any[] = [];
+    windowItems: any[] = [];
 
-  addWindow() {
-    if (this.windowItems.length === 0) {
-      this.windowItems.push({});
-      console.log(this.windowItems);
+    openWindow() {
+        this.isOpen = !this.isOpen;
     }
-  }
 
-  clearWindow() {
-    this.windowItems = [];
-  }
+    closeWindow() {
+        this.isOpen = false;
+    }
 
-  addTask(taskName: string, priority: string) {
-    const initialCompletedValue = "uncompleted"; 
-    this.taskService.addTask(taskName, priority, initialCompletedValue);
-    this.clearWindow();
-  }
+    addTask(taskName: string, priority: string) {
+        const initialCompletedValue = 'uncompleted';
+        this.taskService.addTask(taskName, priority, initialCompletedValue);
+        this.closeWindow();
+    }
 }
