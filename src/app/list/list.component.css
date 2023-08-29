@@ -23,9 +23,7 @@ h1, h2, p {
   box-sizing: border-box;
   color: #037171;
 }
-.input-container input[type="checkbox"] {
-  margin-left: 5px;
-}
+
 .priority {
   display: flex;
   flex-direction: column;
@@ -49,6 +47,59 @@ p {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
+.name-input {
+  border: 2px solid #037171;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  transition: border-color 0.3s ease;
+}
+
+.name-input:hover {
+  border-color: #4caf50;
+}
+
+.name-input:focus {
+  border-color: #27ae60;
+  box-shadow: 0 0 8px #4caf50;
+}
+
+.name-input::placeholder {
+  color: #95a5a6;
+  font-style: italic;
+}
+
+.priority {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+}
+
+.priority p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.priority-select {
+  padding: 8px;
+  border: 2px solid #037171;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.priority-select:hover {
+  border-color: #4caf50;
+}
+
+
+
+
+
+
 
 
 

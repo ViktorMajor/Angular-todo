@@ -20,4 +20,5 @@ export class UncompletedComponent {
   get uncompletedItems() {
     return this.taskService.getUncompletedTasks();
   }
+  
 }

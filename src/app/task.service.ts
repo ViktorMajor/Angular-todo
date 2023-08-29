@@ -48,6 +48,11 @@ export class TaskService {
   getUncompletedTasks() {
     return this.tasks.filter((task) => task.completed === false);
   }
+
+  getUncompletedTasksWithHighPriority(priority: string) {
+    return this.tasks.filter((task) => task.completed === false && task.priority === priority);
+  }
+
   getCompletedTasks() {
     return this.tasks.filter((task) => task.completed === true);
   }
